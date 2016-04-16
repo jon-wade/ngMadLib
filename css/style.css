@@ -40,7 +40,28 @@ body {
     margin-bottom: 27px;
 }
 
-
 .input {
     clear: left;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    border: 2px solid black;
+}
+
+form {
+    margin-left: 30px;
+}
+
+input {
+    margin: 5px 10px 5px 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+section.mad-lib-text {
+    border: 2px black solid;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+section.mad-lib-text p {
+    padding: 0px 50px 0px 50px;
 }
