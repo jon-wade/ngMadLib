@@ -1,0 +1,46 @@
+html {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Comfortaa", sans-serif;
+}
+
+
+
+body {
+    background-color: white;
+    width: 60%;
+    margin: 0 auto;
+}
+
+#happy-face-logo {
+    float: left;
+    width: 100px;
+    height: 100px;
+    padding: 20px 50px 20px 50px;
+    border: 2px black solid;
+}
+
+#title {
+    text-align: center;
+    border: 2px black solid;
+}
+
+#mad-libs-logo {
+    width: 230px;
+    height: 58px;
+    margin-top:13px;
+}
+
+#title h1 {
+    font-weight: 900;
+    font-size: 2.5em;
+    margin-top:-12px;
+    margin-bottom: 27px;
+}
+
+
+.input {
+    clear: left;
+}
