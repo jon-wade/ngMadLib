@@ -19,31 +19,52 @@
             <h1>Automate This!</h1>
         </div>
     </header>
-    <section class="input">
+    <section ng-show="!show" class="input">
         <!-- INPUT SECTION HERE -->
         <h1>Provide the following words:</h1>
-        <form>
-            <input type="text" ng-model="Name" placeholder="name">
-            <input type="text" ng-model="jobTitle" placeholder="job title">
-            <input type="text" ng-model="tediousTask" placeholder="tedious task">
-            <input type="text" ng-model="dirtyTask" placeholder="dirty task">
-            <input type="text" ng-model="celebrity" placeholder="celebrity">
-            <input type="text" ng-model="uselessTask" placeholder="useless skill">
-            <input type="text" ng-model="obnoxiousCelebrity" placeholder="obnoxious celebrity">
-            <input type="text" ng-model="hugeNumber" placeholder="huge number">
-            <input type="text" ng-model="adjective" placeholder="adjective">
+        <form name="inputForm" novalidate ng-submit="submit()">
+            <input type="text" ng-model="name" placeholder="name" name="name" required>
+            <input type="text" ng-model="jobTitle" placeholder="job title" name="jobTitle" required>
+            <input type="text" ng-model="tediousTask" placeholder="tedious task" name="tediousTask" required>
+            <input type="text" ng-model="dirtyTask" placeholder="dirty task" name="dirtyTask" required>
+            <input type="text" ng-model="celebrity" placeholder="celebrity" name="celebrity" required>
+            <input type="text" ng-model="uselessTask" placeholder="useless skill" name="uselessSkill" required>
+            <input type="text" ng-model="obnoxiousCelebrity" placeholder="obnoxious celebrity" name="obnoxiousCelebrity" required>
+            <input type="number" ng-model="hugeNumber" placeholder="huge number" name="hugeNumber" required>
+            <input type="text" ng-model="adjective" placeholder="adjective" name="adjective" required>
+            <br>
+            <hr id="line">
+            <br>
+            <button id="submit" type="submit">Generate my MadLib</button>
         </form>
-        <div class="gender-select">
-            <p>Select gender of MadLib text</p>
-            <button id="male" ng-click="gender='male'">male</button>
-            <button ng-click="gender='female'" id="female">female</button>
+        <!--<div class="gender-select">-->
+            <!--<p>Select gender of MadLib text</p>-->
+            <!--<button id="male" ng-click="gender='male'">male</button>-->
+            <!--<button ng-click="gender='female'" id="female">female</button>-->
+        <!--</div>-->
+        <div ng-show="error" class="error-messages">
+            <p ng-if="inputForm.$invalid">You have errors, please correct before resubmitting your MadLib</p>
+            <ul>
+                <li ng-if="inputForm.name.$invalid">Please input a name.</li>
+                <li ng-if="inputForm.jobTitle.$invalid">Please input a job title.</li>
+                <li ng-if="inputForm.tediousTask.$invalid">Please input a tedious task.</li>
+                <li ng-if="inputForm.dirtyTask.$invalid">Please input a dirty task.</li>
+                <li ng-if="inputForm.celebrity.$invalid">Please input a celebrity name.</li>
+                <li ng-if="inputForm.hugeNumber.$invalid">Please input a huge number.</li>
+                <li ng-if="inputForm.uselessSkill.$invalid">Please input a useless skill.</li>
+                <li ng-if="inputForm.obnoxiousCelebrity.$invalid">Please input an obnoxious celebrity name.</li>
+                <li ng-if="inputForm.adjective.$invalid">Please input an adjective.</li>
+            </ul>
+
         </div>
+
     </section>
-    <section class="mad-lib-text">
-        <p ng-if="gender=='male'"> {{ Name }} was a {{jobTitle}} who loved technology. Although he loved parts of his job, he absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{Name}} met with his life mentor {{celebrity}} who told him to learn how to {{uselessTask}} with Thinkful. Thinkful didn't offer a course on {{uselessTask}} so he studied programming instead.</p>
-        <p ng-if="gender=='female'"> {{ Name }} was a {{jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{Name}} met with her life mentor {{celebrity}} who told her to learn how to {{uselessTask}} with Thinkful. Thinkful didn't offer a course on {{uselessTask}} so she studied programming instead.</p>
-        <p ng-if="gender=='male'">What a great decision! With his new skills, {{Name}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} faster.</p>
-        <p ng-if="gender=='female'">What a great decision! With her new skills, {{Name}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} faster.</p>
+    <section ng-show="show" class="mad-lib-text">
+        <p><!--ng-if="gender=='male'"-->{{ name }} was a {{jobTitle}} who loved technology. Although he loved parts of his job, he absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{name}} met with his life mentor {{celebrity}} who told him to learn how to {{uselessTask}} with Thinkful. Thinkful didn't offer a course on {{uselessTask}} so he studied programming instead.</p>
+        <!--<p ng-if="gender=='female'"> {{ name }} was a {{jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{name}} met with her life mentor {{celebrity}} who told her to learn how to {{uselessTask}} with Thinkful. Thinkful didn't offer a course on {{uselessTask}} so she studied programming instead.</p>-->
+        <p><!--ng-if="gender=='male'"-->What a great decision! With his new skills, {{name}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber | number:0}} faster.</p>
+        <!--<p ng-if="gender=='female'">What a great decision! With her new skills, {{name}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} faster.</p>-->
+        <button id="reset" ng-click="startOver()">Start Over</button>
     </section>
 
 </body>

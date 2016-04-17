@@ -66,7 +66,25 @@ section.mad-lib-text p {
     padding: 0px 50px 0px 50px;
 }
 
-.gender-select{
+.gender-select {
     text-align: center;
     margin-top: 30px;
+}
+
+.error-messages {
+    color: red;
+}
+
+button#submit {
+    margin-left: 512px;
+    margin-top: 5px;
+}
+
+button#reset {
+    margin-left:685px;
+    margin-top:30px;
+}
+
+#line {
+    margin-right: 75px;
 }
