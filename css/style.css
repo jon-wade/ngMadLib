@@ -65,3 +65,8 @@ section.mad-lib-text {
 section.mad-lib-text p {
     padding: 0px 50px 0px 50px;
 }
+
+.gender-select{
+    text-align: center;
+    margin-top: 30px;
+}

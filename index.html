@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +8,10 @@
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <script src="js/jquery-2.2.2.js"></script>
     <script src="js/angular.js"></script>
+    <script src="js/controller.js"></script>
     <title>ngMadLibs</title>
 </head>
-<body>
+<body ng-controller="myCtrl">
     <header>
         <img src="img/mad-lib-happy-face.png" alt="happy-face-logo" id="happy-face-logo">
         <div id="title">
@@ -22,20 +23,27 @@
         <!-- INPUT SECTION HERE -->
         <h1>Provide the following words:</h1>
         <form>
-            <input type="text" ng-init="maleName='[male name]'" ng-model="maleName" placeholder="male name">
-            <input type="text" ng-init="jobTitle='[job title]'" ng-model="jobTitle" placeholder="job title">
-            <input type="text" ng-init="tediousTask='[tedious task]'" ng-model="tediousTask" placeholder="tedious task">
-            <input type="text" ng-init="dirtyTask='[dirty task]'" ng-model="dirtyTask" placeholder="dirty task">
-            <input type="text" ng-init="celebrity='[celebrity]'" ng-model="celebrity" placeholder="celebrity">
-            <input type="text" ng-init="uselessTask='[useless task]'" ng-model="uselessTask" placeholder="useless skill">
-            <input type="text" ng-init="obnoxiousCelebrity='[obnoxious celebrity]'" ng-model="obnoxiousCelebrity" placeholder="obnoxious celebrity">
-            <input type="text" ng-init="hugeNumber='[huge number]'" ng-model="hugeNumber" placeholder="huge number">
-            <input type="text" ng-init="adjective='[adjective]'" ng-model="adjective" placeholder="adjective">
+            <input type="text" ng-model="Name" placeholder="name">
+            <input type="text" ng-model="jobTitle" placeholder="job title">
+            <input type="text" ng-model="tediousTask" placeholder="tedious task">
+            <input type="text" ng-model="dirtyTask" placeholder="dirty task">
+            <input type="text" ng-model="celebrity" placeholder="celebrity">
+            <input type="text" ng-model="uselessTask" placeholder="useless skill">
+            <input type="text" ng-model="obnoxiousCelebrity" placeholder="obnoxious celebrity">
+            <input type="text" ng-model="hugeNumber" placeholder="huge number">
+            <input type="text" ng-model="adjective" placeholder="adjective">
         </form>
+        <div class="gender-select">
+            <p>Select gender of MadLib text</p>
+            <button id="male" ng-click="gender='male'">male</button>
+            <button ng-click="gender='female'" id="female">female</button>
+        </div>
     </section>
     <section class="mad-lib-text">
-        <p> {{ maleName }} was a {{jobTitle}} who loved technology. Although he loved parts of his job, he absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{maleName}} met with his life mentor {{celebrity}} who told him to learn how to {{uselessTask}} with Thinkful. Thinkful didn't offer a course on {{uselessTask}} so he studied programming instead.</p>
-        <p>What a great decision! With his new skills, {{maleName}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} faster.</p>
+        <p ng-if="gender=='male'"> {{ Name }} was a {{jobTitle}} who loved technology. Although he loved parts of his job, he absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{Name}} met with his life mentor {{celebrity}} who told him to learn how to {{uselessTask}} with Thinkful. Thinkful didn't offer a course on {{uselessTask}} so he studied programming instead.</p>
+        <p ng-if="gender=='female'"> {{ Name }} was a {{jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{Name}} met with her life mentor {{celebrity}} who told her to learn how to {{uselessTask}} with Thinkful. Thinkful didn't offer a course on {{uselessTask}} so she studied programming instead.</p>
+        <p ng-if="gender=='male'">What a great decision! With his new skills, {{Name}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} faster.</p>
+        <p ng-if="gender=='female'">What a great decision! With her new skills, {{Name}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} faster.</p>
     </section>
 
 </body>
