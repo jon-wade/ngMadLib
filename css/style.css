@@ -7,7 +7,6 @@ html {
 }
 
 
-
 body {
     background-color: white;
     width: 60%;
@@ -40,15 +39,12 @@ body {
     margin-bottom: 27px;
 }
 
-.input {
-    clear: left;
-    padding-left: 50px;
-    padding-bottom: 50px;
-    border: 2px solid black;
+h1#heading {
+    margin-left: 50px;
 }
 
 form {
-    margin-left: 30px;
+    margin-left: 75px;
 }
 
 input {
@@ -66,11 +62,6 @@ section.mad-lib-text p {
     padding: 0px 50px 0px 50px;
 }
 
-.gender-select {
-    text-align: center;
-    margin-top: 30px;
-}
-
 .error-messages {
     color: red;
 }
@@ -86,5 +77,31 @@ button#reset {
 }
 
 #line {
-    margin-right: 75px;
+    margin-right: 80px;
+}
+
+#header{
+    overflow: hidden;
+    height: 300px;
+    transition: all 1s linear;
+    border: 2px black solid;
+}
+
+#footer{
+    transition: all 1s linear;
+    overflow: hidden;
+    height: 300px;
+    border: 2px black solid;
+}
+
+section#footer p {
+    margin: 30px 30px 5px 30px;
+}
+
+#header.ng-hide, #footer.ng-hide {
+    height: 0px;
+}
+
+#header.ng-hide-remove, #footer.ng-hide-remove {
+    transition-delay: 1s;
 }

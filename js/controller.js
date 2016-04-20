@@ -1,6 +1,6 @@
 
-angular.module('myApp', [])
-    .controller('myCtrl', function($scope){
+angular.module('myApp', ['ngAnimate'])
+    .controller('myCtrl', function($scope, $timeout){
         $scope.name='';
         $scope.tediousTask='';
         $scope.dirtyTask='';
@@ -12,28 +12,32 @@ angular.module('myApp', [])
         $scope.jobTitle='';
         $scope.gender='male';
 
-        $scope.submit = function(){
-            console.log($scope.inputForm);
-            if($scope.inputForm.$invalid){
-                $scope.error=true;
+        $scope.hide = false;
+
+        $scope.clickOne = function(){
+            if ($scope.inputForm.$invalid){
+                $scope.error = true;
             }
             else {
-                $scope.show=true;
+                $scope.hide = !$scope.hide;
             }
-        }
+        };
+
 
         $scope.startOver = function(){
-            $scope.show=false;
-            $scope.name='';
-            $scope.tediousTask='';
-            $scope.dirtyTask='';
-            $scope.celebrity='';
-            $scope.uselessTask='';
-            $scope.obnoxiousCelebrity='';
-            $scope.hugeNumber='';
-            $scope.adjective='';
-            $scope.jobTitle='';
-        }
+            $scope.hide=false;
+            $scope.error=false;
+            $timeout(function(){
+                $scope.name='';
+                $scope.tediousTask='';
+                $scope.dirtyTask='';
+                $scope.celebrity='';
+                $scope.uselessTask='';
+                $scope.obnoxiousCelebrity='';
+                $scope.hugeNumber='';
+                $scope.adjective='';
+                $scope.jobTitle='';}, 2000);
+        };
 
     });
 
